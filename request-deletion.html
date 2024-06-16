@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Account Deletion</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            background-color: #f0f0f0;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .text {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e90ff;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Request Account Deletion</h1>
+        <p class="text">After inputting your email, you will receive an email with a link to delete your account. Please
+            note that this action is irreversible.</p>
+        <center>
+            <input type="email" id="email_input" placeholder="Enter your email"><br>
+            <button onclick="deleteAccount()">Request Deletion</button>
+        </center>
+    </div>
+    <script>
+        function deleteAccount() {
+            const res = prompt("Are you sure you want to delete your account? This action is irreversible. Type 'yes' to confirm.");
+            if (res === "yes") {
+                fetch("https://api.terra.photos/api/auth/request-deletion", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email: document.getElementById("email_input").value
+                    })
+                });
+                alert("An email has been sent to your email address with a link to delete your account.");
+                window.location.href = "https://terra.photos";
+            } else {
+                alert("Account deletion cancelled.");
+            }
+        }
+    </script>
+</body>
+
+</html>
