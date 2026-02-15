@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Terms of Service — Terra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0d1810;
+            --bg-mid: #142118;
+            --bg-card: rgba(26, 42, 31, 0.82);
+            --text-primary: #f4f6f3;
+            --text-secondary: #b8c9b5;
+            --text-muted: #7a8f76;
+            --accent: #3d9e6d;
+            --accent-soft: rgba(61, 158, 109, 0.18);
+            --border: rgba(61, 158, 109, 0.22);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --ease: cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-deep);
+            background-image: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 40%, var(--bg-deep) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 158, 109, 0.08), transparent 50%);
+        }
+
+        .wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(13, 24, 16, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+        .nav-links a:hover { color: var(--text-primary); background: var(--accent-soft); }
+
+        main {
+            flex: 1;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem 2rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .content p { margin: 0 0 1rem; }
+        .content p:last-child { margin-bottom: 0; }
+
+        .back { text-align: center; margin-top: 2rem; }
+        .back a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.35rem;
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: var(--accent-soft);
+            border: 1px solid var(--border);
+            transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+        }
+        .back a:hover { background: rgba(61, 158, 109, 0.28); border-color: var(--border); }
+    </style>
+</head>
+<body>
+    <div class="page-bg"></div>
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="/" class="nav-logo">Terra</a>
+            <div class="nav-links">
+                <a href="/support">Support</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+        </nav>
+        <main>
+            <div class="header">
+                <h1>Terms of Service</h1>
+            </div>
+            <div class="content">
+                <p>By using our app, you agree to the following terms:</p>
+                <p>1. You will not use this app for any illegal or discriminatory purposes. This includes but is not limited to: hate speech, harassment, and threats.</p>
+                <p>2. You will not upload any content that is copyrighted or trademarked. This includes but again is not limited to: photos not taken by you, copyrighted captions, and trademarked logos.</p>
+                <p>3. You will not attempt to hack or otherwise compromise the security of this app. However, if you do find a security vulnerability, please report it to us immediately and the repercussions will be minimal.</p>
+                <p>4. You will not create multiple accounts to avoid bans or to otherwise circumvent the rules of this app.</p>
+                <p>5. You will not use this app to spam or otherwise annoy other users.</p>
+                <p>6. By creating an account on this app you are saying that you are 13 years of age or older.</p>
+                <p>7. You will not use this app to promote any form of "adult content", "violence", "drugs", or anything of that nature.</p>
+                <p>To summarize, don't be a jerk and you'll be fine.</p>
+                <p>If you have any questions about these terms, please contact us.</p>
+                <p>This app is provided as-is and we are not responsible for any damages that may occur from using this app.</p>
+                <p>We reserve the right to change these terms at any time without notice.</p>
+                <p>By using this app you agree to these terms.</p>
+            </div>
+            <div class="back">
+                <a href="/">Back to Terra</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

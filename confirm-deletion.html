@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Confirm Account Deletion — Terra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0d1810;
+            --bg-mid: #142118;
+            --bg-card: rgba(26, 42, 31, 0.82);
+            --text-primary: #f4f6f3;
+            --text-secondary: #b8c9b5;
+            --text-muted: #7a8f76;
+            --accent: #3d9e6d;
+            --accent-soft: rgba(61, 158, 109, 0.18);
+            --accent-danger: #c95a5a;
+            --accent-danger-hover: #b34a4a;
+            --border: rgba(61, 158, 109, 0.22);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --ease: cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-deep);
+            background-image: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 40%, var(--bg-deep) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 158, 109, 0.08), transparent 50%);
+        }
+
+        .wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 480px;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(13, 24, 16, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+        .nav-links a:hover { color: var(--text-primary); background: var(--accent-soft); }
+
+        main {
+            flex: 1;
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .header { text-align: center; margin-bottom: 1.5rem; }
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.75rem 2rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .content p { margin: 0 0 1rem; }
+        .content .status { margin-top: 1rem; font-weight: 500; color: var(--text-primary); }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            width: 100%;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            background: var(--accent-danger);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s var(--ease);
+        }
+        button:hover { background: var(--accent-danger-hover); }
+        button:disabled { opacity: 0.7; cursor: not-allowed; }
+
+        .back { text-align: center; margin-top: 1.5rem; }
+        .back a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s var(--ease);
+        }
+        .back a:hover { color: var(--text-primary); }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="/" class="nav-logo">Terra</a>
+            <div class="nav-links">
+                <a href="/support">Support</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+        </nav>
+        <main>
+            <div class="header">
+                <h1>Confirm deletion</h1>
+            </div>
+            <div class="content">
+                <p id="message">One moment…</p>
+                <p class="status" id="status" aria-live="polite"></p>
+                <button type="button" id="confirm_btn" style="display: none;">Permanently delete my account</button>
+            </div>
+            <div class="back">
+                <a href="/">Back to Terra</a>
+            </div>
+        </main>
+    </div>
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get("token");
+            const messageEl = document.getElementById("message");
+            const statusEl = document.getElementById("status");
+            const btn = document.getElementById("confirm_btn");
+
+            if (!token) {
+                messageEl.textContent = "This link is invalid or missing the confirmation token. Please request a new account deletion email.";
+                return;
+            }
+
+            messageEl.textContent = "Click the button below to permanently delete your Terra account. This cannot be undone.";
+            btn.style.display = "block";
+
+            btn.addEventListener("click", async function () {
+                if (!confirm("Are you sure? Your account and all data will be permanently deleted.")) return;
+                btn.disabled = true;
+                btn.textContent = "Deleting…";
+                statusEl.textContent = "";
+                try {
+                    const response = await fetch("https://api.terra.photos/api/auth/confirm-deletion", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ token: token })
+                    });
+                    const data = await response.json().catch(function () { return {}; });
+                    if (response.ok && data.success) {
+                        statusEl.textContent = "Your account has been deleted.";
+                        btn.style.display = "none";
+                        messageEl.textContent = "Your account has been permanently deleted. Thank you for using Terra.";
+                        setTimeout(function () {
+                            window.location.href = "/";
+                        }, 3000);
+                    } else {
+                        statusEl.textContent = data.message || "Something went wrong. Please try again or contact support.";
+                        btn.disabled = false;
+                        btn.textContent = "Permanently delete my account";
+                    }
+                } catch (err) {
+                    statusEl.textContent = "Could not reach the server. Please check your connection and try again.";
+                    btn.disabled = false;
+                    btn.textContent = "Permanently delete my account";
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

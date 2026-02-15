@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Privacy Policy — Terra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0d1810;
+            --bg-mid: #142118;
+            --bg-card: rgba(26, 42, 31, 0.82);
+            --text-primary: #f4f6f3;
+            --text-secondary: #b8c9b5;
+            --text-muted: #7a8f76;
+            --accent: #3d9e6d;
+            --accent-hover: #34b374;
+            --accent-soft: rgba(61, 158, 109, 0.18);
+            --border: rgba(61, 158, 109, 0.22);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --ease: cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-deep);
+            background-image: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 40%, var(--bg-deep) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 158, 109, 0.08), transparent 50%);
+        }
+
+        .wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(13, 24, 16, 0.8);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+        .nav-links a:hover { color: var(--text-primary); background: var(--accent-soft); }
+
+        main {
+            flex: 1;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem 2rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            text-align: left;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .content p { margin: 0 0 1rem; }
+        .content p:last-child { margin-bottom: 0; }
+        .content .bold { font-weight: 600; color: var(--text-primary); }
+        .content a { color: var(--accent); text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+
+        .back { text-align: center; margin-top: 2rem; }
+        .back a {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.35rem;
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: var(--accent-soft);
+            border: 1px solid var(--border);
+            transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+        }
+        .back a:hover { background: rgba(61, 158, 109, 0.28); border-color: var(--border); }
+    </style>
+</head>
+<body>
+    <div class="page-bg"></div>
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="/" class="nav-logo">Terra</a>
+            <div class="nav-links">
+                <a href="/support">Support</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+        </nav>
+        <main>
+            <div class="header">
+                <h1>Privacy Policy</h1>
+            </div>
+            <div class="content">
+                <p>Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our website.</p>
+                <p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent.</p>
+                <p>Starting with the <span class="bold">What</span>, we collect only information you provide to us. From your signup process, we collect your email address, username, and password.</p>
+                <p>When you make posts, we collect image metadata provided by you, and the image itself. And it is stored in <a href="https://cloudflare.com" target="_blank" rel="noopener">Cloudflare's</a> servers.</p>
+                <p>When you make comments, all we collect is the text you have provided. For liking, viewing, following, etc. we just add a record to our database.</p>
+                <p>Basically, we don't collect any information other than what you provide to us and we try to keep it to a minimum.</p>
+                <p>Next, <span class="bold">How</span> we collect your information. We collect your information through the signup process, post creation, comment creation, and other actions you take on our website.</p>
+                <p>And <span class="bold">Why</span> we collect your information. We collect your information to provide you with the services you have requested from us.</p>
+                <p>And finally, <span class="bold">Where</span> we store your information. We store your information in our database and in Cloudflare's servers.</p>
+                <p>We believe in keeping your information secure and private. With this being said, however, if we are ever contacted by law enforcement, we will have to provide them with the information they request.</p>
+                <p>Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.</p>
+                <p>Our website uses cookies to improve your experience. By using our app you agree to our use of cookies and the terms of service.</p>
+            </div>
+            <div class="back">
+                <a href="/">Back to Terra</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

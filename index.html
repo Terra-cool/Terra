@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Terra — Beauty Awaits</title>
+
+    <meta property="og:title" content="Terra - Find beauty in the mundane.">
+    <meta property="og:description" content="Terra redefines social media by embracing the beauty of the world—landscapes, light, and quiet moments—without photos of people.">
+    <meta property="og:image" content="https://terra.photos/images/terra.png">
+    <meta property="og:url" content="https://terra.photos">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Terra - Find beauty in the mundane.">
+    <meta name="twitter:description" content="Terra redefines social media by embracing the beauty of the world.">
+    <meta name="twitter:image" content="https://terra.photos/images/terra.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-deep: #0d1810;
+            --bg-mid: #142118;
+            --bg-elevated: #1a2a1f;
+            --bg-card: rgba(26, 42, 31, 0.82);
+            --text-primary: #f4f6f3;
+            --text-secondary: #b8c9b5;
+            --text-muted: #7a8f76;
+            --accent: #3d9e6d;
+            --accent-hover: #34b374;
+            --accent-soft: rgba(61, 158, 109, 0.18);
+            --border: rgba(61, 158, 109, 0.22);
+            --border-strong: rgba(61, 158, 109, 0.35);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.35);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --ease: cubic-bezier(0.33, 1, 0.68, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 100% 60% at 50% -15%, rgba(61, 158, 109, 0.12), transparent 50%),
+                radial-gradient(ellipse 80% 40% at 80% 50%, rgba(61, 158, 109, 0.06), transparent 45%),
+                linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 35%, var(--bg-deep) 100%);
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        .wrapper {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ----- Navigation ----- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            background: rgba(13, 24, 16, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            transition: color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--accent-soft);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1rem;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: background 0.2s var(--ease), transform 0.15s var(--ease);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-cta:active { transform: scale(0.98); }
+
+        /* ----- Main content ----- */
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.75rem, 7vw, 4rem);
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .hero .tagline {
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            letter-spacing: 0.01em;
+        }
+
+        .hero .supporting {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 1.25rem auto 0;
+            line-height: 1.65;
+        }
+
+        /* ----- Features ----- */
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin: 3rem 0 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.5rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: left;
+            transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-strong);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ----- Screenshots ----- */
+        .screenshots-wrap {
+            margin: 4rem 0;
+        }
+
+        .screenshots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .screenshots img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+            border: 1px solid var(--border);
+            transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease);
+        }
+
+        .screenshots img:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+        }
+
+        /* ----- CTAs ----- */
+        .cta-block {
+            margin: 4rem 0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.95rem 1.6rem;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease), box-shadow 0.2s var(--ease);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(61, 158, 109, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 6px 24px rgba(61, 158, 109, 0.35);
+        }
+
+        .btn-primary img {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .btn-secondary {
+            background: var(--accent-soft);
+            color: var(--text-primary);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(61, 158, 109, 0.28);
+            border-color: var(--border-strong);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-secondary);
+            border-color: var(--border);
+        }
+
+        .btn-ghost:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .btn-social {
+            min-width: 130px;
+            font-size: 0.95rem;
+        }
+
+        .btn-youtube:hover { background: #e53935; color: #fff; border-color: transparent; }
+        .btn-discord:hover { background: #5865f2; color: #fff; border-color: transparent; }
+        .btn-instagram:hover { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; border-color: transparent; }
+
+        .connect-block { margin: 3rem 0; }
+        .social-row { justify-content: center; }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 3rem 0 2rem;
+            border: 0;
+        }
+
+        /* ----- Footer ----- */
+        .footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s var(--ease);
+        }
+
+        .footer-links a:hover { color: var(--text-secondary); }
+
+        .footer p {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 0.875rem 1rem; flex-wrap: wrap; gap: 0.75rem; }
+            .nav-links { order: 3; width: 100%; justify-content: center; }
+            main { padding: 2rem 1rem 3rem; }
+            .hero { margin-bottom: 3rem; }
+            .features { margin: 2rem 0 3rem; grid-template-columns: 1fr; }
+            .screenshots img { max-width: 180px; }
+            .buttons { flex-direction: column; }
+            .buttons .btn { width: 100%; max-width: 280px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.25rem; }
+            .hero .tagline { font-size: 1.15rem; }
+            .screenshots img { max-width: 160px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .screenshots img:hover { transform: none; }
+            .btn:active { transform: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-bg"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="/" class="nav-logo">Terra</a>
+            <div class="nav-links">
+                <a href="/support">Support</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+            <a href="#download" class="nav-cta">Download app</a>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <h1>Terra</h1>
+                <p class="tagline">Find beauty in the mundane.</p>
+                <p class="supporting">A different kind of social feed—landscapes, light, and quiet moments. No people in photos, so the world takes the spotlight.</p>
+            </section>
+
+            <p class="section-label">Why Terra</p>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>No people, just place</h3>
+                    <p>We focus on the world around us. Photos without people keep the feed about places, light, and atmosphere.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Landscapes & light</h3>
+                    <p>Discover scenes that often get overlooked—skies, nature, streets, and the small details that make a moment.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Quiet & mindful</h3>
+                    <p>Scroll with intention. Terra is built for a calmer, more reflective way to share and explore.</p>
+                </div>
+            </div>
+
+            <div class="screenshots-wrap">
+                <p class="section-label">See the app</p>
+                <div class="screenshots">
+                    <img src="images/screenshot1.png" alt="Terra app screenshot">
+                    <img src="images/screenshot3.png" alt="Terra app screenshot">
+                    <img src="images/screenshot2.png" alt="Terra app screenshot">
+                </div>
+            </div>
+
+            <div class="cta-block" id="download">
+                <p class="section-label">Download</p>
+                <div class="buttons">
+                    <a href="https://play.google.com/store/apps/details?id=com.terracool.terra" class="btn btn-primary">
+                        <img src="images/android-logo.png" alt=""> Android
+                    </a>
+                    <a href="https://apps.apple.com/us/app/terra-beauty-awaits/id6504406172" class="btn btn-primary">
+                        <img src="images/ios-logo.png" alt=""> iOS
+                    </a>
+                </div>
+            </div>
+
+            <div class="connect-block">
+                <p class="section-label">Connect</p>
+                <div class="buttons social-row">
+                    <a href="https://www.youtube.com/@terra_app" class="btn btn-ghost btn-social btn-youtube">YouTube</a>
+                    <a href="https://app.terra.photos/discord" class="btn btn-ghost btn-social btn-discord">Discord</a>
+                    <a href="https://www.instagram.com/terra_app1" class="btn btn-ghost btn-social btn-instagram">Instagram</a>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <a href="/support" class="btn btn-secondary">Need help?</a>
+            </div>
+
+            <hr class="divider">
+
+            <footer class="footer">
+                <div class="footer-links">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/support">Support</a>
+                </div>
+                <p>&copy; 2025 Terra. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>
