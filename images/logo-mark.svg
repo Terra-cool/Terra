@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="314 437 1372 1126" width="1372" height="1126" role="img" aria-label="Terra">
+  <title>Terra</title>
+  <g fill="none" stroke="#ffffff" stroke-width="38" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="338" y="619" width="1324" height="920" rx="76"/>
+    <path d="M464.5 619 V552.5 a27 27 0 0 1 27 -27 h141 a27 27 0 0 1 27 27 V619"/>
+    <path d="M761 619 L806 499.5 Q818.6 460.5 845 460.5 H1155 Q1181.4 460.5 1194 499.5 L1239 619"/>
+    <circle cx="506.5" cy="783.5" r="59.5"/>
+    <rect x="1358.5" y="723.5" width="194" height="120" rx="46"/>
+    <path d="M338 948.5 H644.5 M1355.5 948.5 H1662"/>
+    <circle cx="1000" cy="1079.5" r="355.5"/>
+    <circle cx="1000" cy="1079.5" r="252.5"/>
+  </g>
+  <path fill="#ffffff" d="M921 966 H1079 V1027.5 H1031.5 V1193 H968.5 V1027.5 H921 Z"/>
+</svg>

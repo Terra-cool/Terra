@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" width="2000" height="2000" role="img" aria-label="Terra">
+  <title>Terra</title>
+  <rect width="2000" height="2000" rx="440" fill="#202e1d"/>
+  <g transform="translate(1000 999.5) scale(1.2041) translate(-1000 -999.5)">
+  <g fill="none" stroke="#ffffff" stroke-width="96" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="367.0" y="648.0" width="1266.0" height="862.0" rx="105.0"/>
+    <path d="M790.0 648.0 L806 528.5 Q833.1 489.5 874.0 489.5 H1126.0 Q1166.9 489.5 1194 528.5 L1210.0 648.0"/>
+    <circle cx="1000" cy="1079.5" r="326.5"/>
+  </g>
+  <path fill="#ffffff" transform="translate(1000 1079.5) scale(1.55) translate(-1000 -1079.5)" d="M921 966 H1079 V1027.5 H1031.5 V1193 H968.5 V1027.5 H921 Z"/>
+  </g>
+</svg>
