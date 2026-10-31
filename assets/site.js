@@ -64,6 +64,72 @@
         items.forEach(function (el) { el.classList.add('in'); });
     }
 
+    // In-page section links (#features, /#faq, ...).
+    // The browser's native jump happens before fonts/images settle, so the
+    // layout shifts afterwards and the target ends up off-screen or under the
+    // sticky header. Handle the scroll ourselves and re-align once settled.
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var userScrolled = false;
+    ['wheel', 'touchmove', 'keydown'].forEach(function (ev) {
+        window.addEventListener(ev, function () { userScrolled = true; }, { passive: true });
+    });
+
+    function targetFor(hash) {
+        if (!hash || hash.length < 2) return null;
+        try { return document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) { return null; }
+    }
+
+    function alignTo(el) {
+        var offset = (header ? header.offsetHeight : 0) + 12;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+    }
+
+    function scrollToTarget(el, smooth) {
+        if (!smooth || reduceMotion) { alignTo(el); return; }
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Fix up any drift once the smooth scroll finishes.
+        var done = false;
+        var settle = function () {
+            if (done) return; done = true;
+            window.removeEventListener('scrollend', settle);
+            if (!userScrolled) alignTo(el);
+        };
+        if ('onscrollend' in window) window.addEventListener('scrollend', settle);
+        setTimeout(settle, 1200);
+    }
+
+    function samePage(a) {
+        var strip = function (p) { return p.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/$/, '') || '/'; };
+        return a.origin === location.origin && strip(a.pathname) === strip(location.pathname);
+    }
+
+    document.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var a = e.target.closest && e.target.closest('a[href*="#"]');
+        if (!a || a.target === '_blank' || !samePage(a)) return;
+        var el = targetFor(a.hash);
+        if (!el) return;
+        e.preventDefault();
+        if (header && header.classList.contains('open')) {
+            header.classList.remove('open');
+            var t = header.querySelector('.nav-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+        }
+        userScrolled = false;
+        if (location.hash !== a.hash) history.pushState(null, '', a.hash);
+        scrollToTarget(el, true);
+        if (el.id === 'main') { el.setAttribute('tabindex', '-1'); el.focus({ preventScroll: true }); }
+    });
+
+    // Arriving from another page with a hash (e.g. /support -> /#faq).
+    if (targetFor(location.hash)) {
+        var realign = function () { var el = targetFor(location.hash); if (el && !userScrolled) alignTo(el); };
+        realign();
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(realign);
+        window.addEventListener('load', function () { realign(); setTimeout(realign, 300); });
+    }
+
     // Footer year
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
