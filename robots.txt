@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /confirm-deletion
+
+Sitemap: https://terra.photos/sitemap.xml

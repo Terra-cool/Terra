@@ -1,513 +1,684 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-    <title>Terra — Beauty Awaits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Terra — Nature-only photo sharing for iPhone &amp; Android</title>
+    <meta name="description" content="Terra is a calm, nature-only photo community. Share landscapes, skies and quiet moments—no people, no selfies. Join challenges, win photo duels, earn badges. Free on iOS and Android.">
+    <link rel="canonical" href="https://terra.photos/">
+    <meta name="theme-color" content="#0b150e">
+    <meta name="apple-itunes-app" content="app-id=6758865926">
 
-    <meta property="og:title" content="Terra - Find beauty in the mundane.">
-    <meta property="og:description" content="Terra redefines social media by embracing the beauty of the world—landscapes, light, and quiet moments—without photos of people.">
-    <meta property="og:image" content="https://terra.photos/images/terra.png">
-    <meta property="og:url" content="https://terra.photos">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <meta property="og:site_name" content="Terra">
+    <meta property="og:title" content="Terra — Find beauty in the mundane">
+    <meta property="og:description" content="A nature-only photo community. No people, no selfies—just landscapes, light and quiet moments. Free on iOS and Android.">
+    <meta property="og:image" content="https://terra.photos/images/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://terra.photos/">
     <meta property="og:type" content="website">
-
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Terra - Find beauty in the mundane.">
-    <meta name="twitter:description" content="Terra redefines social media by embracing the beauty of the world.">
-    <meta name="twitter:image" content="https://terra.photos/images/terra.png">
+    <meta name="twitter:title" content="Terra — Find beauty in the mundane">
+    <meta name="twitter:description" content="A nature-only photo community. Free on iOS and Android.">
+    <meta name="twitter:image" content="https://terra.photos/images/og.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/images/photos/aurora.webp">
+    <link rel="stylesheet" href="/assets/site.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Terra",
+        "alternateName": "Terra Photos",
+        "url": "https://terra.photos/",
+        "image": "https://terra.photos/images/og.png",
+        "description": "A nature-only photo sharing community. Share landscapes, skies and quiet moments—no people in photos.",
+        "applicationCategory": "PhotographyApplication",
+        "operatingSystem": "iOS, Android",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "installUrl": [
+            "https://apps.apple.com/us/app/terra-photos/id6758865926",
+            "https://play.google.com/store/apps/details?id=com.terracool.terra"
+        ],
+        "publisher": { "@type": "Organization", "name": "Terra", "url": "https://terra.photos/", "email": "support@terra.photos" }
+    }
+    </script>
 
     <style>
-        :root {
-            --bg-deep: #0d1810;
-            --bg-mid: #142118;
-            --bg-elevated: #1a2a1f;
-            --bg-card: rgba(26, 42, 31, 0.82);
-            --text-primary: #f4f6f3;
-            --text-secondary: #b8c9b5;
-            --text-muted: #7a8f76;
-            --accent: #3d9e6d;
-            --accent-hover: #34b374;
-            --accent-soft: rgba(61, 158, 109, 0.18);
-            --border: rgba(61, 158, 109, 0.22);
-            --border-strong: rgba(61, 158, 109, 0.35);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.25);
-            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.35);
-            --radius-sm: 10px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --ease: cubic-bezier(0.33, 1, 0.68, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        /* ===== Hero ===== */
+        .hero { padding: 3.5rem 0 5rem; position: relative; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.4rem 0.9rem 0.4rem 0.45rem;
+            border-radius: 999px; border: 1px solid var(--border); background: rgba(255, 255, 255, 0.03);
+            font-size: 0.85rem; color: var(--text-secondary); text-decoration: none;
         }
+        .pill b { background: var(--accent); color: #fff; font-weight: 600; font-size: 0.72rem; padding: 0.15rem 0.55rem; border-radius: 999px; letter-spacing: 0.04em; }
+        .hero h1 { font-size: clamp(3rem, 7.6vw, 5.6rem); line-height: 0.98; margin: 1.4rem 0 0; letter-spacing: -0.02em; }
+        .hero h1 em { font-style: italic; font-weight: 500; color: var(--accent-bright); }
+        .hero .lead { font-size: 1.2rem; max-width: 520px; margin-top: 1.4rem; }
+        .hero .store-badges { margin-top: 2.2rem; }
+        .hero-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; margin-top: 1.6rem; color: var(--text-muted); font-size: 0.9rem; }
+        .hero-meta span { display: inline-flex; align-items: center; gap: 0.45rem; }
+        .hero-meta svg { width: 16px; height: 16px; color: var(--accent-bright); }
 
-        *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: var(--bg-deep);
-            color: var(--text-primary);
-            min-height: 100vh;
-            font-weight: 400;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+        /* ===== Phone mockup ===== */
+        .phone-stage { position: relative; display: flex; justify-content: center; }
+        .phone-stage::before {
+            content: ""; position: absolute; width: 120%; aspect-ratio: 1; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(61, 158, 109, 0.28), transparent 62%); z-index: -1; filter: blur(10px);
         }
+        .phone {
+            width: 300px; aspect-ratio: 9 / 19.5; border-radius: 46px; padding: 11px; position: relative;
+            background: linear-gradient(145deg, #2a3a2f, #0e1711 40%, #1f2d23);
+            box-shadow: var(--shadow-lg), inset 0 0 0 1.5px rgba(255, 255, 255, 0.09);
+        }
+        .phone.tilt { transform: rotate(-4deg); }
+        .screen { position: relative; height: 100%; border-radius: 36px; overflow: hidden; background: #0d1b0f; display: flex; flex-direction: column; }
+        .island { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 88px; height: 25px; border-radius: 20px; background: #000; z-index: 5; }
+        .status { display: flex; justify-content: space-between; padding: 12px 24px 0; font-size: 11px; font-weight: 600; color: #e8f5e9; height: 40px; }
+        .app-top { display: flex; align-items: center; justify-content: space-between; padding: 6px 16px 10px; }
+        .app-top .brand { font-family: var(--serif); font-size: 20px; font-weight: 600; letter-spacing: 0.08em; color: #e8f5e9; display: flex; align-items: center; gap: 6px; }
+        .app-top .brand img { width: 24px; }
+        .chip-row { display: flex; gap: 6px; padding: 0 16px 10px; overflow: hidden; }
+        .chip { font-size: 10px; padding: 4px 9px; border-radius: 999px; background: #1a2e1f; color: #a5d6a7; white-space: nowrap; border: 1px solid #2d4a35; }
+        .chip.on { background: #66bb6a; color: #0d1b0f; border-color: #66bb6a; font-weight: 600; }
+        .post { margin: 0 12px; border-radius: 18px; overflow: hidden; position: relative; flex: 1; min-height: 0; }
+        .post img { width: 100%; height: 100%; object-fit: cover; }
+        .post .meta {
+            position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 12px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.75)); color: #fff; font-size: 11px;
+        }
+        .post .meta .user { display: flex; align-items: center; gap: 7px; font-weight: 600; font-size: 12px; }
+        .avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #66bb6a, #e8b33e); flex-shrink: 0; }
+        .post .meta .cap { margin-top: 4px; opacity: 0.9; }
+        .post .meta .tags { color: #a5d6a7; margin-top: 2px; }
+        .post .badge-pod { position: absolute; top: 12px; left: 12px; background: rgba(13, 27, 15, 0.75); backdrop-filter: blur(6px); color: #ffe08a; font-size: 10px; font-weight: 600; padding: 4px 9px; border-radius: 999px; }
+        .post .actions { position: absolute; right: 12px; bottom: 70px; display: grid; gap: 12px; color: #fff; font-size: 10px; text-align: center; }
+        .post .actions svg { width: 22px; height: 22px; display: block; margin: 0 auto 2px; }
+        .tabbar { display: flex; justify-content: space-around; padding: 10px 6px 20px; color: #81c784; font-size: 9px; }
+        .tabbar span { display: grid; justify-items: center; gap: 3px; }
+        .tabbar span.on { color: #66bb6a; font-weight: 600; }
+        .tabbar svg { width: 19px; height: 19px; }
 
-        .page-bg {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
+        .float-card {
+            position: absolute; background: rgba(22, 38, 27, 0.92); border: 1px solid var(--border-strong); border-radius: 16px;
+            padding: 0.7rem 0.9rem; display: flex; align-items: center; gap: 0.7rem; box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-size: 0.82rem; animation: bob 6s ease-in-out infinite;
+        }
+        .float-card img { width: 38px; height: 38px; }
+        .float-card b { display: block; font-size: 0.88rem; }
+        .float-card small { color: var(--text-muted); }
+        .float-1 { top: 44%; left: -8%; }
+        .float-2 { top: 12%; right: -6%; animation-delay: -3s; }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        /* ===== Tag marquee ===== */
+        .marquee { border-block: 1px solid var(--border); overflow: hidden; padding: 1.1rem 0; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+        .marquee-track { display: flex; gap: 2.5rem; width: max-content; animation: scroll 40s linear infinite; }
+        .marquee-track span { font-family: var(--serif); font-size: 1.5rem; font-style: italic; color: var(--text-muted); white-space: nowrap; }
+        .marquee-track span::before { content: "#"; color: var(--accent); margin-right: 2px; }
+        @keyframes scroll { to { transform: translateX(-50%); } }
+
+        /* ===== Promise ===== */
+        .promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .photo-stack { position: relative; height: 460px; }
+        .photo-stack figure { position: absolute; margin: 0; border-radius: 22px; overflow: hidden; box-shadow: var(--shadow-lg); border: 6px solid #f4f6f3; background: #f4f6f3; }
+        .photo-stack figure img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-stack figcaption { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.5rem 0.8rem; font-size: 0.78rem; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.6)); }
+        .ps-1 { width: 62%; height: 300px; top: 0; left: 0; transform: rotate(-5deg); }
+        .ps-2 { width: 54%; height: 250px; top: 70px; right: 0; transform: rotate(4deg); z-index: 2; }
+        .ps-3 { width: 58%; height: 230px; bottom: 0; left: 16%; transform: rotate(-1deg); z-index: 3; }
+        .rules { display: grid; gap: 1rem; margin-top: 2rem; }
+        .rule { display: flex; gap: 1rem; padding: 1.1rem 1.25rem; }
+        .rule .ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-bright); flex-shrink: 0; }
+        .rule .ico svg { width: 22px; height: 22px; }
+        .rule h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 600; margin: 0.1rem 0 0.2rem; }
+        .rule p { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* ===== Feature bento ===== */
+        .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.1rem; }
+        .tile { padding: 1.7rem; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s var(--ease); }
+        .tile:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+        .tile .ico { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-bright); margin-bottom: 1.1rem; }
+        .tile .ico.sun { background: var(--sun-soft); color: var(--sun); }
+        .tile .ico svg { width: 22px; height: 22px; }
+        .tile h3 { font-size: 1.6rem; margin-bottom: 0.4rem; }
+        .tile p { color: var(--text-secondary); margin: 0; font-size: 0.97rem; }
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+        .span-4 { grid-column: span 4; }
+        .tile-photo { min-height: 320px; display: flex; flex-direction: column; justify-content: flex-end; border: 0; }
+        .tile-photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+        .tile-photo:hover > img { transform: scale(1.04); }
+        .tile-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 21, 14, 0.05) 20%, rgba(11, 21, 14, 0.92)); }
+        .tile-photo > *:not(img):not(.potd) { position: relative; z-index: 1; }
+        .potd { position: absolute; top: 1.4rem; left: 1.4rem; z-index: 1; display: inline-flex; gap: 0.4rem; align-items: center; padding: 0.35rem 0.8rem; border-radius: 999px; background: rgba(11, 21, 14, 0.7); color: #ffe08a; font-size: 0.8rem; font-weight: 600; backdrop-filter: blur(6px); }
+        .mini-list { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.1rem; }
+        .mini-list span { font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 999px; border: 1px solid var(--border); color: var(--text-secondary); }
+
+        /* ===== Duels ===== */
+        .duel-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 4rem; align-items: center; }
+        .steps { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.4rem; counter-reset: s; }
+        .steps li { display: grid; grid-template-columns: 48px 1fr; gap: 1rem; counter-increment: s; }
+        .steps li::before {
+            content: counter(s); width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+            font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--accent-bright); border: 1px solid var(--border-strong);
+        }
+        .steps h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; margin: 0.35rem 0 0.2rem; }
+        .steps p { margin: 0; color: var(--text-secondary); }
+        .duel-board { padding: 1.4rem; }
+        .duel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-secondary); }
+        .duel-head b { font-family: var(--serif); font-size: 1.35rem; color: var(--text-primary); font-weight: 600; }
+        .timer { font-variant-numeric: tabular-nums; color: var(--sun); font-weight: 600; background: var(--sun-soft); padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.85rem; }
+        .duel-pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.8rem; align-items: center; }
+        .duel-pic { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5; position: relative; }
+        .duel-pic img { width: 100%; height: 100%; object-fit: cover; }
+        .duel-pic button {
+            position: absolute; left: 50%; bottom: 0.8rem; transform: translateX(-50%); border: 0; cursor: pointer;
+            font: inherit; font-size: 0.82rem; font-weight: 600; padding: 0.45rem 0.9rem; white-space: nowrap; border-radius: 999px;
+            background: rgba(244, 246, 243, 0.94); color: #0b150e; transition: background 0.2s, transform 0.15s;
+        }
+        .duel-pic button:hover { background: #fff; }
+        .duel-pic.voted button { background: var(--accent); color: #fff; }
+        .vs { font-family: var(--serif); font-style: italic; font-size: 1.8rem; color: var(--text-muted); }
+        .duel-bar { margin-top: 1.1rem; height: 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); overflow: hidden; display: flex; }
+        .duel-bar i { display: block; height: 100%; background: var(--accent); transition: width 0.6s var(--ease); }
+        .duel-bar i + i { background: var(--sun); }
+        .duel-foot { display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.82rem; color: var(--text-muted); }
+
+        /* ===== Progress / badges ===== */
+        .progress-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+        .level-card { padding: 1.8rem; }
+        .level-row { display: flex; align-items: center; gap: 1rem; }
+        .level-num { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), #2a6e4c); font-family: var(--serif); font-size: 2rem; font-weight: 600; }
+        .xp { margin-top: 1.4rem; }
+        .xp-bar { height: 10px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); overflow: hidden; }
+        .xp-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); border-radius: inherit; transition: width 1.6s var(--ease); }
+        .reveal.in .xp-bar i { width: 72%; }
+        .xp-meta { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-muted); margin-top: 0.5rem; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.5rem; }
+        .stat { padding: 0.9rem; border-radius: 14px; background: rgba(0, 0, 0, 0.18); border: 1px solid var(--border); }
+        .stat b { display: block; font-size: 1.25rem; }
+        .stat small { color: var(--text-muted); font-size: 0.78rem; }
+        .badge-wall { padding: 1.8rem; }
+        .badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.4rem; }
+        .badges figure { margin: 0; text-align: center; }
+        .badges img { width: 64px; height: 64px; margin: 0 auto 0.45rem; transition: transform 0.35s var(--ease-spring); filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35)); }
+        .badges figure:hover img { transform: translateY(-4px) rotate(-6deg) scale(1.06); }
+        .badges figcaption { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.3; }
+
+        /* ===== Themes ===== */
+        .themes { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+        .theme { text-align: center; padding: 1.2rem 0.6rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--theme-bg); transition: transform 0.3s var(--ease-spring), border-color 0.3s; }
+        .theme:hover { transform: translateY(-5px); border-color: var(--theme-fg); }
+        .theme img { width: 76px; height: 76px; border-radius: 18px; margin: 0 auto 0.75rem; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45); }
+        .theme b { display: block; font-size: 0.95rem; color: var(--theme-fg); }
+        .theme small { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* ===== FAQ ===== */
+        .faq { display: grid; gap: 0.75rem; }
+        .faq details { padding: 0; overflow: hidden; }
+        .faq summary { list-style: none; cursor: pointer; padding: 1.2rem 1.4rem; font-weight: 500; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--accent-bright); transition: transform 0.3s var(--ease); flex-shrink: 0; }
+        .faq details[open] summary::after { transform: rotate(45deg); }
+        .faq details p { margin: 0; padding: 0 1.4rem 1.3rem; color: var(--text-secondary); }
+        .faq a { color: var(--accent-bright); }
+
+        /* ===== Final CTA ===== */
+        .cta-panel {
+            position: relative; overflow: hidden; border-radius: var(--radius-lg); padding: 4rem;
+            display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+            border: 1px solid var(--border-strong);
             background:
-                radial-gradient(ellipse 100% 60% at 50% -15%, rgba(61, 158, 109, 0.12), transparent 50%),
-                radial-gradient(ellipse 80% 40% at 80% 50%, rgba(61, 158, 109, 0.06), transparent 45%),
-                linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 35%, var(--bg-deep) 100%);
+                linear-gradient(105deg, rgba(11, 21, 14, 0.96) 35%, rgba(11, 21, 14, 0.55)),
+                url('/images/photos/sunset.webp') center / cover;
         }
+        .cta-panel h2 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-top: 0.6rem; }
+        .cta-panel .store-badges { margin-top: 2rem; }
+        .qr { background: #f4f6f3; border-radius: 22px; padding: 1.1rem; text-align: center; width: 190px; box-shadow: var(--shadow-lg); }
+        .qr img { width: 100%; image-rendering: pixelated; }
+        .qr small { display: block; color: #3a4a3e; font-size: 0.78rem; margin-top: 0.55rem; font-weight: 500; }
 
-        .noise {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        @media (max-width: 960px) {
+            .hero-grid, .promise-grid, .duel-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+            .hero { padding-top: 2rem; text-align: center; }
+            .hero .lead { margin-left: auto; margin-right: auto; }
+            .hero .store-badges, .hero-meta { justify-content: center; }
+            .bento { grid-template-columns: 1fr 1fr; }
+            .span-2, .span-3, .span-4 { grid-column: span 1; }
+            .tile-photo.span-4 { grid-column: 1 / -1; }
+            .progress-grid { grid-template-columns: 1fr; }
+            .themes { grid-template-columns: repeat(3, 1fr); }
+            .cta-panel { grid-template-columns: 1fr; padding: 3rem 2rem; text-align: center; }
+            .cta-panel .store-badges { justify-content: center; }
+            .qr { display: none; }
+            .photo-stack { max-width: 520px; width: 100%; margin: 0 auto; }
         }
-
-        .wrapper {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ----- Navigation ----- */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-            background: rgba(13, 24, 16, 0.75);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 0.5rem 0.75rem;
-            border-radius: var(--radius-sm);
-            transition: color 0.2s var(--ease), background 0.2s var(--ease);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-            background: var(--accent-soft);
-        }
-
-        .nav-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.6rem 1rem;
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            transition: background 0.2s var(--ease), transform 0.15s var(--ease);
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-hover);
-        }
-
-        .nav-cta:active { transform: scale(0.98); }
-
-        /* ----- Main content ----- */
-        main {
-            flex: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem 4rem;
-            width: 100%;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.75rem, 7vw, 4rem);
-            font-weight: 600;
-            margin: 0;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            color: var(--text-primary);
-        }
-
-        .hero .tagline {
-            font-size: 1.35rem;
-            font-weight: 300;
-            color: var(--text-secondary);
-            margin-top: 0.75rem;
-            letter-spacing: 0.01em;
-        }
-
-        .hero .supporting {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 520px;
-            margin: 1.25rem auto 0;
-            line-height: 1.65;
-        }
-
-        /* ----- Features ----- */
-        .section-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-            margin: 3rem 0 4rem;
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem 1.5rem;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            text-align: left;
-            transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
-        }
-
-        .feature-card:hover {
-            border-color: var(--border-strong);
-            box-shadow: var(--shadow-md);
-        }
-
-        .feature-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 0.4rem;
-            color: var(--text-primary);
-        }
-
-        .feature-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        /* ----- Screenshots ----- */
-        .screenshots-wrap {
-            margin: 4rem 0;
-        }
-
-        .screenshots {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .screenshots img {
-            width: 100%;
-            max-width: 220px;
-            height: auto;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
-            border: 1px solid var(--border);
-            transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease);
-        }
-
-        .screenshots img:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
-        }
-
-        /* ----- CTAs ----- */
-        .cta-block {
-            margin: 4rem 0;
-        }
-
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.95rem 1.6rem;
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease), box-shadow 0.2s var(--ease);
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .btn:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        .btn:active { transform: scale(0.98); }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-            box-shadow: 0 4px 16px rgba(61, 158, 109, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            box-shadow: 0 6px 24px rgba(61, 158, 109, 0.35);
-        }
-
-        .btn-primary img {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-        }
-
-        .btn-secondary {
-            background: var(--accent-soft);
-            color: var(--text-primary);
-            border-color: var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(61, 158, 109, 0.28);
-            border-color: var(--border-strong);
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-secondary);
-            border-color: var(--border);
-        }
-
-        .btn-ghost:hover {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .btn-social {
-            min-width: 130px;
-            font-size: 0.95rem;
-        }
-
-        .btn-youtube:hover { background: #e53935; color: #fff; border-color: transparent; }
-        .btn-instagram:hover { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; border-color: transparent; }
-
-        .connect-block { margin: 3rem 0; }
-        .social-row { justify-content: center; }
-
-        .divider {
-            height: 1px;
-            background: var(--border);
-            margin: 3rem 0 2rem;
-            border: 0;
-        }
-
-        /* ----- Footer ----- */
-        .footer {
-            text-align: center;
-            padding: 1.5rem 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: color 0.2s var(--ease);
-        }
-
-        .footer-links a:hover { color: var(--text-secondary); }
-
-        .footer p {
-            font-size: 0.8125rem;
-            color: var(--text-muted);
-            margin: 0;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            .nav { padding: 0.875rem 1rem; flex-wrap: wrap; gap: 0.75rem; }
-            .nav-links { order: 3; width: 100%; justify-content: center; }
-            main { padding: 2rem 1rem 3rem; }
-            .hero { margin-bottom: 3rem; }
-            .features { margin: 2rem 0 3rem; grid-template-columns: 1fr; }
-            .screenshots img { max-width: 180px; }
-            .buttons { flex-direction: column; }
-            .buttons .btn { width: 100%; max-width: 280px; }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.25rem; }
-            .hero .tagline { font-size: 1.15rem; }
-            .screenshots img { max-width: 160px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .screenshots img:hover { transform: none; }
-            .btn:active { transform: none; }
+        @media (max-width: 620px) {
+            .bento { grid-template-columns: 1fr; }
+            .tile-photo.span-4 { grid-column: auto; }
+            .float-card { display: none; }
+            .phone { width: 270px; }
+            .photo-stack { height: 380px; }
+            .ps-1 { height: 240px; } .ps-2 { height: 200px; top: 60px; } .ps-3 { height: 180px; }
+            .badges { grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+            .badges img { width: 52px; height: 52px; }
+            .themes { grid-template-columns: repeat(2, 1fr); }
+            .stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .cta-panel { padding: 2.5rem 1.25rem; }
+            .duel-board { padding: 1rem; }
         }
     </style>
 </head>
 
 <body>
-    <div class="page-bg"></div>
-    <div class="noise" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-bg" aria-hidden="true"></div>
 
-    <div class="wrapper">
-        <nav class="nav">
-            <a href="/" class="nav-logo"><img src="images/logo-mark.png" alt="" width="38" height="32">Terra</a>
-            <div class="nav-links">
-                <a href="/support">Support</a>
-                <a href="/privacy">Privacy</a>
-                <a href="/terms">Terms</a>
+    <header class="site-header">
+        <div class="container nav">
+            <a href="/" class="nav-logo" aria-label="Terra home"><img src="/images/logo-mark.png" alt="" width="40" height="34">Terra</a>
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#duels">Duels</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/support">Support</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#download" class="btn btn-primary btn-sm" data-smart-download>Get the app</a>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
             </div>
-            <a href="#download" class="nav-cta">Download app</a>
-        </nav>
+        </div>
+    </header>
 
-        <main>
-            <section class="hero">
-                <h1>Terra</h1>
-                <p class="tagline">Find beauty in the mundane.</p>
-                <p class="supporting">A different kind of social feed—landscapes, light, and quiet moments. No people in photos, so the world takes the spotlight.</p>
-            </section>
+    <main id="main">
+        <!-- ===== Hero ===== -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <a class="pill" href="#duels"><b>NEW</b> Photo duels are live &rarr;</a>
+                    <h1>Find beauty in the <em>mundane.</em></h1>
+                    <p class="lead">Terra is a calm, nature-only photo community. No selfies, no people&mdash;just skies, landscapes and the quiet moments everyone else scrolls past.</p>
 
-            <p class="section-label">Why Terra</p>
-            <div class="features">
-                <div class="feature-card">
-                    <h3>No people, just place</h3>
-                    <p>We focus on the world around us. Photos without people keep the feed about places, light, and atmosphere.</p>
+                    <div class="store-badges" id="download">
+                        <a class="store-badge" data-store="ios" href="https://apps.apple.com/us/app/terra-photos/id6758865926" aria-label="Download Terra on the App Store">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                            <span><small>Download on the</small><strong>App Store</strong></span>
+                        </a>
+                        <a class="store-badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.terracool.terra" aria-label="Get Terra on Google Play">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
+                            <span><small>Get it on</small><strong>Google Play</strong></span>
+                        </a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free to download</span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>iPhone &amp; Android</span>
+                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No people. Ever.</span>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>Landscapes & light</h3>
-                    <p>Discover scenes that often get overlooked—skies, nature, streets, and the small details that make a moment.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Quiet & mindful</h3>
-                    <p>Scroll with intention. Terra is built for a calmer, more reflective way to share and explore.</p>
+
+                <div class="phone-stage reveal">
+                    <div class="phone tilt" role="img" aria-label="The Terra app showing an aurora photo in the Top Picks feed">
+                        <div class="screen">
+                            <div class="island"></div>
+                            <div class="status"><span>9:41</span><span>&#9679;&#9679;&#9679;</span></div>
+                            <div class="app-top">
+                                <span class="brand"><img src="/images/logo-mark.png" alt="">TERRA</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a5d6a7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                            </div>
+                            <div class="chip-row"><span class="chip on">Top Picks</span><span class="chip">Following</span></div>
+                            <div class="post">
+                                <img src="/images/photos/aurora.webp" alt="" width="596" height="440">
+                                <span class="badge-pod">&#9733; Photo of the day</span>
+                                <div class="actions">
+                                    <span><svg viewBox="0 0 24 24" fill="#ef5350"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4l1 1.4 1-1.4c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>284</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6A8 8 0 1 1 21 12z"/></svg>32</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg></span>
+                                </div>
+                                <div class="meta">
+                                    <div class="user"><span class="avatar"></span>@northernlights</div>
+                                    <div class="cap">Didn't expect the sky to do this tonight.</div>
+                                    <div class="tags">#Aurora #Night #Sky</div>
+                                </div>
+                            </div>
+                            <div class="tabbar">
+                                <span class="on"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>Top Picks</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Explore</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Upload</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Leaders</span>
+                                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 11h.01"/></svg>Duels</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="float-card float-1"><img src="/images/badges/duelist.webp" alt="" width="38" height="38"><span><b>Badge unlocked</b><small>Duelist</small></span></div>
+                    <div class="float-card float-2"><img src="/images/badges/rank_young_tree.webp" alt="" width="38" height="38"><span><b>Rank up</b><small>Young Tree</small></span></div>
                 </div>
             </div>
+        </section>
 
-            <div class="screenshots-wrap">
-                <p class="section-label">See the app</p>
-                <div class="screenshots">
-                    <img src="images/screenshot1.png" alt="Terra app screenshot">
-                    <img src="images/screenshot3.png" alt="Terra app screenshot">
-                    <img src="images/screenshot2.png" alt="Terra app screenshot">
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Sunset</span><span>Aurora</span><span>Fog</span><span>Skyline</span><span>Forest</span><span>Golden hour</span><span>Rain</span><span>Mountains</span><span>Wildlife</span><span>Ocean</span><span>Wildflowers</span><span>Night sky</span>
+                <span>Sunset</span><span>Aurora</span><span>Fog</span><span>Skyline</span><span>Forest</span><span>Golden hour</span><span>Rain</span><span>Mountains</span><span>Wildlife</span><span>Ocean</span><span>Wildflowers</span><span>Night sky</span>
+            </div>
+        </div>
+
+        <!-- ===== Promise ===== -->
+        <section class="section" id="why">
+            <div class="container promise-grid">
+                <div class="photo-stack reveal" aria-hidden="true">
+                    <figure class="ps-1"><img src="/images/photos/sunset.webp" alt="" loading="lazy" width="1284" height="962"><figcaption>a new beginning</figcaption></figure>
+                    <figure class="ps-2"><img src="/images/photos/aurora.webp" alt="" loading="lazy" width="596" height="440"><figcaption>crazy lights</figcaption></figure>
+                    <figure class="ps-3"><img src="/images/photos/pier.webp" alt="" loading="lazy" width="596" height="440"><figcaption>navy pier</figcaption></figure>
+                </div>
+                <div class="reveal">
+                    <span class="eyebrow">Why Terra</span>
+                    <h2>Social media, minus the <span class="serif-italic">noise.</span></h2>
+                    <p class="lead">Every other feed is about people. Terra is about places. One simple rule keeps the whole app feeling like a deep breath.</p>
+                    <div class="rules">
+                        <div class="rule card">
+                            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6"/></svg></div>
+                            <div><h3>Nature-only, by design</h3><p>No people in photos&mdash;just landscapes, wildlife, skies, streets and light. Posts that break the rule get reported and reviewed.</p></div>
+                        </div>
+                        <div class="rule card">
+                            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></div>
+                            <div><h3>Curated, not algorithmic</h3><p>Top Picks are standout photos chosen by people, plus a daily Photo of the Day spotlight.</p></div>
+                        </div>
+                        <div class="rule card">
+                            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
+                            <div><h3>Calm, mindful scrolling</h3><p>No influencer culture, no comparing yourself to anyone. Just the world, seen through other people's eyes.</p></div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="cta-block" id="download">
-                <p class="section-label">Download</p>
-                <div class="buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.terracool.terra" class="btn btn-primary">
-                        <img src="images/android-logo.png" alt=""> Android
-                    </a>
-                    <a href="https://apps.apple.com/us/app/terra-photos/id6758865926" class="btn btn-primary">
-                        <img src="images/ios-logo.png" alt=""> iOS
-                    </a>
+        <!-- ===== Features ===== -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-head center reveal">
+                    <span class="eyebrow">Inside the app</span>
+                    <h2>Everything you need to share the outdoors</h2>
+                    <p class="lead">From your first sunset post to your hundredth badge, Terra makes photography a little more fun.</p>
+                </div>
+
+                <div class="bento">
+                    <article class="tile card tile-photo span-4 reveal">
+                        <img src="/images/photos/sunset.webp" alt="" loading="lazy" width="1284" height="962">
+                        <span class="potd">&#9733; Photo of the Day</span>
+                        <h3>Top Picks &amp; daily spotlights</h3>
+                        <p>A hand-picked feed of the best shots on Terra, plus a Photo of the Day archive you can scroll back through anytime.</p>
+                    </article>
+                    <article class="tile card span-2 reveal">
+                        <div class="ico sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+                        <h3>Challenges</h3>
+                        <p>Time-limited photo prompts with a countdown. Submit your best shot and compete with the community.</p>
+                    </article>
+                    <article class="tile card span-2 reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+                        <h3>Explore</h3>
+                        <p>Search captions, browse popular tags and sort by newest, most liked or most discussed.</p>
+                        <div class="mini-list"><span>#Clouds</span><span>#Sunset</span><span>#Forest</span></div>
+                    </article>
+                    <article class="tile card span-2 reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></div>
+                        <h3>Map view</h3>
+                        <p>Tag where you shot it and see photos pinned on a map&mdash;find new places worth the walk.</p>
+                    </article>
+                    <article class="tile card span-2 reveal">
+                        <div class="ico sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M4.9 4.9l1.4 1.4M2 12h2M17.7 6.3l1.4-1.4M20 12h2"/><path d="M16 12a4 4 0 0 0-8 0"/><path d="M5 17h14a3 3 0 0 0 0-6M3 21h18"/></svg></div>
+                        <h3>Weather stamps</h3>
+                        <p>Add the conditions to a post, so every foggy morning and stormy sky gets its context.</p>
+                    </article>
+                    <article class="tile card span-3 reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="16" cy="8" r="1.5"/></svg></div>
+                        <h3>Albums &amp; multi-photo posts</h3>
+                        <p>Post up to 10 photos at once, turn short videos into looping GIFs, add a song, and gather trips into albums&mdash;even shared ones with friends.</p>
+                    </article>
+                    <article class="tile card span-3 reveal">
+                        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6A8 8 0 1 1 21 12z"/></svg></div>
+                        <h3>Follow, comment &amp; message</h3>
+                        <p>Follow photographers you love, reply in threads, mention friends and chat in direct messages. &ldquo;On this day&rdquo; memories bring old shots back around.</p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <div class="connect-block">
-                <p class="section-label">Connect</p>
-                <div class="buttons social-row">
-                    <a href="https://www.youtube.com/@terra_app" class="btn btn-ghost btn-social btn-youtube">YouTube</a>
-                    <a href="https://www.instagram.com/terra_app1" class="btn btn-ghost btn-social btn-instagram">Instagram</a>
+        <!-- ===== Duels ===== -->
+        <section class="section" id="duels">
+            <div class="container duel-grid">
+                <div class="reveal">
+                    <span class="eyebrow">New &middot; Photo duels</span>
+                    <h2>Same prompt. Two photographers. <span class="serif-italic">You decide.</span></h2>
+                    <p class="lead">Get matched with a rival, head outside and shoot the same prompt. The community votes&mdash;without knowing who took what.</p>
+                    <ol class="steps">
+                        <li><div><h3>Get matched</h3><p>Tap &ldquo;find a rival&rdquo;&mdash;or send a link to challenge a friend directly.</p></div></li>
+                        <li><div><h3>Shoot the prompt</h3><p>Use your camera to capture the prompt before the timer runs out.</p></div></li>
+                        <li><div><h3>Let the community vote</h3><p>Photos are shown anonymously. Winners climb the duel-wins leaderboard.</p></div></li>
+                    </ol>
+                </div>
+                <div class="duel-board card reveal" id="duelDemo">
+                    <div class="duel-head"><span>Today's prompt<br><b>&ldquo;Something glowing&rdquo;</b></span><span class="timer">05:42:17</span></div>
+                    <div class="duel-pair">
+                        <div class="duel-pic" data-side="0"><img src="/images/photos/aurora.webp" alt="Duel entry A: aurora over a dark horizon" loading="lazy" width="596" height="440"><button type="button">Vote A</button></div>
+                        <span class="vs">vs</span>
+                        <div class="duel-pic" data-side="1"><img src="/images/photos/pier.webp" alt="Duel entry B: city skyline at dusk" loading="lazy" width="596" height="440"><button type="button">Vote B</button></div>
+                    </div>
+                    <div class="duel-bar"><i style="width:50%"></i><i style="width:50%"></i></div>
+                    <div class="duel-foot"><span data-pct="0">Tap to vote</span><span data-pct="1">Try it</span></div>
                 </div>
             </div>
+        </section>
 
-            <div class="buttons">
-                <a href="/support" class="btn btn-secondary">Need help?</a>
-            </div>
-
-            <hr class="divider">
-
-            <footer class="footer">
-                <div class="footer-links">
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="/terms">Terms of Service</a>
-                    <a href="/support">Support</a>
+        <!-- ===== Progress ===== -->
+        <section class="section" id="progress">
+            <div class="container">
+                <div class="section-head center reveal">
+                    <span class="eyebrow">Level up</span>
+                    <h2>Get rewarded for getting outside</h2>
+                    <p class="lead">Earn XP for posting, commenting and keeping your streak alive. Climb the ranks, top the leaderboards and collect badges along the way.</p>
                 </div>
-                <p>&copy; 2025 Terra. All rights reserved.</p>
-            </footer>
-        </main>
-    </div>
+                <div class="progress-grid">
+                    <div class="level-card card reveal">
+                        <div class="level-row">
+                            <img src="/images/badges/rank_young_tree.webp" alt="" width="64" height="64" style="width:64px;height:64px">
+                            <div><b style="font-size:1.15rem">Level 12 &middot; Young Tree</b><br><small style="color:var(--text-muted)">Grow from Seed to Forest Legend and beyond</small></div>
+                        </div>
+                        <div class="xp">
+                            <div class="xp-bar"><i></i></div>
+                            <div class="xp-meta"><span>2,160 XP</span><span>3,000 XP</span></div>
+                        </div>
+                        <div class="stats">
+                            <div class="stat"><b>&#128293; 18</b><small>Day streak</small></div>
+                            <div class="stat"><b>7</b><small>Duel wins</small></div>
+                            <div class="stat"><b>#4</b><small>Leaderboard</small></div>
+                        </div>
+                    </div>
+                    <div class="badge-wall card reveal">
+                        <b style="font-size:1.15rem">Badges to collect</b><br><small style="color:var(--text-muted)">Dozens of badges for milestones, streaks and quirky moments.</small>
+                        <div class="badges">
+                            <figure><img src="/images/badges/first_post.webp" alt="" loading="lazy" width="64" height="64"><figcaption>First post</figcaption></figure>
+                            <figure><img src="/images/badges/duelist.webp" alt="" loading="lazy" width="64" height="64"><figcaption>Duelist</figcaption></figure>
+                            <figure><img src="/images/badges/globetrotter.webp" alt="" loading="lazy" width="64" height="64"><figcaption>Globetrotter</figcaption></figure>
+                            <figure><img src="/images/badges/night_owl.webp" alt="" loading="lazy" width="64" height="64"><figcaption>Night owl</figcaption></figure>
+                            <figure><img src="/images/badges/post_streak_30.webp" alt="" loading="lazy" width="64" height="64"><figcaption>30-day streak</figcaption></figure>
+                            <figure><img src="/images/badges/level_25.webp" alt="" loading="lazy" width="64" height="64"><figcaption>Level 25</figcaption></figure>
+                            <figure><img src="/images/badges/hundred_followers.webp" alt="" loading="lazy" width="64" height="64"><figcaption>100 followers</figcaption></figure>
+                            <figure><img src="/images/badges/early_adopter.webp" alt="" loading="lazy" width="64" height="64"><figcaption>Early adopter</figcaption></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Themes ===== -->
+        <section class="section" id="themes">
+            <div class="container">
+                <div class="section-head center reveal">
+                    <span class="eyebrow">Make it yours</span>
+                    <h2>Six themes. Six app icons.</h2>
+                    <p class="lead">Switch Terra to match your mood&mdash;and unlock new looks as you level up.</p>
+                </div>
+                <div class="themes reveal">
+                    <div class="theme" style="--theme-bg:#0d1b0f;--theme-fg:#66bb6a"><img src="/images/icons/forest.webp" alt="Forest app icon" loading="lazy" width="76" height="76"><b>Forest</b><small>Default</small></div>
+                    <div class="theme" style="--theme-bg:#0a1929;--theme-fg:#64b5f6"><img src="/images/icons/ocean.webp" alt="Ocean app icon" loading="lazy" width="76" height="76"><b>Ocean</b><small>Cool blues</small></div>
+                    <div class="theme" style="--theme-bg:#1a0f0d;--theme-fg:#ff9800"><img src="/images/icons/sunset.webp" alt="Sunset app icon" loading="lazy" width="76" height="76"><b>Sunset</b><small>Golden hour</small></div>
+                    <div class="theme" style="--theme-bg:#1a0f1a;--theme-fg:#ba68c8"><img src="/images/icons/eclipse.webp" alt="Eclipse app icon" loading="lazy" width="76" height="76"><b>Eclipse</b><small>Twilight</small></div>
+                    <div class="theme" style="--theme-bg:#1a0b0b;--theme-fg:#ef5350"><img src="/images/icons/ruby.webp" alt="Ruby app icon" loading="lazy" width="76" height="76"><b>Ruby</b><small>Deep red</small></div>
+                    <div class="theme" style="--theme-bg:#000000;--theme-fg:#e0e0e0"><img src="/images/icons/night.webp" alt="Night app icon" loading="lazy" width="76" height="76"><b>Night</b><small>True black</small></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="section" id="faq">
+            <div class="container container-narrow">
+                <div class="section-head center reveal">
+                    <span class="eyebrow">FAQ</span>
+                    <h2>Good questions</h2>
+                </div>
+                <div class="faq reveal">
+                    <details class="card" open>
+                        <summary>Is Terra free?</summary>
+                        <p>Yes. Terra is free to download and use on iPhone and Android.</p>
+                    </details>
+                    <details class="card">
+                        <summary>Why no people in photos?</summary>
+                        <p>Because the world deserves the spotlight. Without selfies and portraits, the feed stays calm and focused on places, light and atmosphere&mdash;and there's nothing to compare yourself to.</p>
+                    </details>
+                    <details class="card">
+                        <summary>What can I post?</summary>
+                        <p>Landscapes, skies, wildlife, plants, weather, cityscapes, streets, architecture&mdash;anything from the world around you, as long as there are no people in it and you took it yourself. You can post up to 10 photos at a time.</p>
+                    </details>
+                    <details class="card">
+                        <summary>What happens if someone breaks the rules?</summary>
+                        <p>Tap Report on any post or comment. Our team reviews every report and removes content that doesn't belong. Read more in our <a href="/terms">Terms</a> and <a href="/csae">Child Safety Standards</a>.</p>
+                    </details>
+                    <details class="card">
+                        <summary>Do I need to be a good photographer?</summary>
+                        <p>Not at all. Most of Terra is shot on phones. If something made you stop and look, it belongs here.</p>
+                    </details>
+                    <details class="card">
+                        <summary>How do I delete my account?</summary>
+                        <p>You can request deletion from the <a href="/request-deletion">account deletion page</a>. We'll email you a link to confirm.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Final CTA ===== -->
+        <section class="section" style="padding-top:2rem">
+            <div class="container">
+                <div class="cta-panel reveal">
+                    <div>
+                        <span class="eyebrow">Download Terra</span>
+                        <h2>The world is beautiful.<br><span class="serif-italic">Go show someone.</span></h2>
+                        <p class="lead">Free on the App Store and Google Play.</p>
+                        <div class="store-badges">
+                            <a class="store-badge" data-store="ios" href="https://apps.apple.com/us/app/terra-photos/id6758865926" aria-label="Download Terra on the App Store">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+                                <span><small>Download on the</small><strong>App Store</strong></span>
+                            </a>
+                            <a class="store-badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.terracool.terra" aria-label="Get Terra on Google Play">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
+                                <span><small>Get it on</small><strong>Google Play</strong></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="qr">
+                        <img src="/images/qr-download.svg" alt="QR code linking to terra.photos/download" width="160" height="160">
+                        <small>Scan with your phone camera</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo"><img src="/images/logo-mark.png" alt="" width="40" height="34">Terra</a>
+                    <p>Find beauty in the mundane. A nature-only photo community for iPhone and Android.</p>
+                    <div class="socials">
+                        <a href="https://www.instagram.com/terra_app1" aria-label="Terra on Instagram" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+                        <a href="https://www.youtube.com/@terra_app" aria-label="Terra on YouTube" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg></a>
+                        <a href="mailto:support@terra.photos" aria-label="Email Terra support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>App</h4>
+                    <ul>
+                        <li><a href="https://apps.apple.com/us/app/terra-photos/id6758865926">App Store</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.terracool.terra">Google Play</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="/support">Support</a></li>
+                        <li><a href="/request-deletion">Delete account</a></li>
+                        <li><a href="mailto:support@terra.photos">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/csae">Child Safety</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; <span data-year>2026</span> Terra. All rights reserved.</span>
+                <span>Made for people who stop to look at the sky.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/site.js"></script>
+    <script>
+        // Interactive duel demo
+        (function () {
+            var board = document.getElementById('duelDemo');
+            if (!board) return;
+            var bars = board.querySelectorAll('.duel-bar i');
+            var labels = board.querySelectorAll('.duel-foot span');
+            var votes = [118, 97];
+            board.querySelectorAll('.duel-pic').forEach(function (pic) {
+                pic.querySelector('button').addEventListener('click', function () {
+                    if (board.dataset.voted) return;
+                    board.dataset.voted = '1';
+                    var side = +pic.dataset.side;
+                    votes[side] += 1;
+                    pic.classList.add('voted');
+                    pic.querySelector('button').textContent = 'Voted ✓';
+                    var total = votes[0] + votes[1];
+                    [0, 1].forEach(function (i) {
+                        var pct = Math.round(votes[i] / total * 100);
+                        bars[i].style.width = pct + '%';
+                        labels[i].textContent = (i ? 'B ' : 'A ') + pct + '%';
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>

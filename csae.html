@@ -1,163 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-    <title>Standards Against Child Sexual Abuse and Exploitation (CSAE) — Terra</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Child Safety Standards (CSAE) — Terra</title>
+    <meta name="description" content="Terra's standards against child sexual abuse and exploitation.">
+    <link rel="canonical" href="https://terra.photos/csae">
+    <meta name="theme-color" content="#0b150e">
+    <meta name="apple-itunes-app" content="app-id=6758865926">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <meta property="og:site_name" content="Terra">
+    <meta property="og:title" content="Child Safety Standards (CSAE) — Terra">
+    <meta property="og:description" content="Terra's standards against child sexual abuse and exploitation.">
+    <meta property="og:image" content="https://terra.photos/images/og.png">
+    <meta property="og:url" content="https://terra.photos/csae">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-deep: #0d1810;
-            --bg-mid: #142118;
-            --bg-card: rgba(26, 42, 31, 0.82);
-            --text-primary: #f4f6f3;
-            --text-secondary: #b8c9b5;
-            --text-muted: #7a8f76;
-            --accent: #3d9e6d;
-            --accent-hover: #34b374;
-            --accent-soft: rgba(61, 158, 109, 0.18);
-            --border: rgba(61, 158, 109, 0.22);
-            --radius-sm: 10px;
-            --radius-md: 14px;
-            --ease: cubic-bezier(0.33, 1, 0.68, 1);
-        }
-        *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg-deep);
-            background-image: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 40%, var(--bg-deep) 100%);
-            color: var(--text-primary);
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .page-bg {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 158, 109, 0.08), transparent 50%);
-        }
-
-        .wrapper { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; }
-
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            max-width: 720px;
-            margin: 0 auto;
-            width: 100%;
-            background: rgba(13, 24, 16, 0.8);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-links { display: flex; align-items: center; gap: 0.25rem; }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 0.5rem 0.75rem;
-            border-radius: var(--radius-sm);
-            transition: color 0.2s var(--ease), background 0.2s var(--ease);
-        }
-        .nav-links a:hover { color: var(--text-primary); background: var(--accent-soft); }
-
-        main {
-            flex: 1;
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem 4rem;
-            width: 100%;
-        }
-
-        .header { text-align: center; margin-bottom: 2rem; }
-        .header h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-primary);
-        }
-
-        .content {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 2rem 2rem;
-            color: var(--text-secondary);
-            line-height: 1.75;
-            text-align: left;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .content p { margin: 0 0 1rem; }
-        .content p:last-child { margin-bottom: 0; }
-        .content .bold { font-weight: 600; color: var(--text-primary); }
-        .content h2 { font-size: 1.1rem; color: var(--text-primary); margin: 1.5rem 0 0.5rem; }
-        .content h2:first-child { margin-top: 0; }
-        .content a { color: var(--accent); text-decoration: none; }
-        .content a:hover { text-decoration: underline; }
-
-        .back { text-align: center; margin-top: 2rem; }
-        .back a {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.35rem;
-            border-radius: var(--radius-sm);
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            background: var(--accent-soft);
-            border: 1px solid var(--border);
-            transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
-        }
-        .back a:hover { background: rgba(61, 158, 109, 0.28); border-color: var(--border); }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
 </head>
+
 <body>
-    <div class="page-bg"></div>
-    <div class="wrapper">
-        <nav class="nav">
-            <a href="/" class="nav-logo">Terra</a>
-            <div class="nav-links">
-                <a href="/support">Support</a>
-                <a href="/privacy">Privacy</a>
-                <a href="/terms">Terms</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="container nav">
+            <a href="/" class="nav-logo" aria-label="Terra home"><img src="/images/logo-mark.png" alt="" width="40" height="34">Terra</a>
+            <ul class="nav-links">
+                <li><a href="/#features">Features</a></li>
+                <li><a href="/#duels">Duels</a></li>
+                <li><a href="/#faq">FAQ</a></li>
+                <li><a href="/support">Support</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/download" class="btn btn-primary btn-sm" data-smart-download>Get the app</a>
+                <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
             </div>
-        </nav>
-        <main>
-            <div class="header">
-                <h1>Standards Against Child Sexual Abuse and Exploitation (CSAE)</h1>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="doc-hero">
+            <div class="container container-narrow">
+                <span class="eyebrow">Safety</span>
+                <h1>Child Safety Standards</h1>
+                <p>Standards Against Child Sexual Abuse and Exploitation (CSAE)</p>
             </div>
-            <div class="content">
+        </section>
+        <div class="container container-narrow">
+            <article class="prose card">
                 <p>Terra is committed to preventing and combating child sexual abuse and exploitation (CSAE). These standards describe how we address these harms and keep our community safe.</p>
-                <p>The app does not allow photos of humans at all—only nature and the physical world—which significantly reduces the risk of such content on our platform.</p>
+                <p class="callout">The app does not allow photos of humans at all&mdash;only nature and the physical world&mdash;which significantly reduces the risk of such content on our platform.</p>
 
                 <h2>Prohibited content and conduct</h2>
                 <p>We do not allow any content or behavior that sexualizes or exploits minors. This includes, but is not limited to: child sexual abuse material (CSAM), content that promotes or facilitates child sexual exploitation, grooming, or any representation of minors in a sexual or suggestive context.</p>
@@ -166,17 +66,62 @@
                 <p>We use a combination of human review and technical measures to detect, remove, and report harmful content and activity. We take action on violating content and accounts in line with our policies and applicable law.</p>
 
                 <h2>Reporting</h2>
-                <p>If you see content or behavior that you believe exploits or endangers a child, please report it in the app or contact us via our <a href="/support">Support</a> page. We treat reports seriously and act in accordance with our policies and legal obligations.</p>
+                <p>If you see content or behavior that you believe exploits or endangers a child, please report it in the app or contact us via our <a href="/support">Support page</a> or at <a href="mailto:support@terra.photos">support@terra.photos</a>. We treat reports seriously and act in accordance with our policies and legal obligations.</p>
 
                 <h2>Cooperation with authorities</h2>
                 <p>We cooperate with law enforcement and relevant authorities in the investigation of child sexual abuse and exploitation, including where required by law.</p>
 
                 <p>These standards are part of our commitment to a safe environment for everyone. We may update this page from time to time; the current version is always published here.</p>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo"><img src="/images/logo-mark.png" alt="" width="40" height="34">Terra</a>
+                    <p>Find beauty in the mundane. A nature-only photo community for iPhone and Android.</p>
+                    <div class="socials">
+                        <a href="https://www.instagram.com/terra_app1" aria-label="Terra on Instagram" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+                        <a href="https://www.youtube.com/@terra_app" aria-label="Terra on YouTube" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg></a>
+                        <a href="mailto:support@terra.photos" aria-label="Email Terra support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>App</h4>
+                    <ul>
+                        <li><a href="https://apps.apple.com/us/app/terra-photos/id6758865926">App Store</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.terracool.terra">Google Play</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="/support">Support</a></li>
+                        <li><a href="/request-deletion">Delete account</a></li>
+                        <li><a href="mailto:support@terra.photos">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/csae">Child Safety</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="back">
-                <a href="/">Back to Terra</a>
+            <div class="footer-bottom">
+                <span>&copy; <span data-year>2026</span> Terra. All rights reserved.</span>
+                <span>Made for people who stop to look at the sky.</span>
             </div>
-        </main>
-    </div>
+        </div>
+    </footer>
+
+    <script src="/assets/site.js"></script>
 </body>
+
 </html>
